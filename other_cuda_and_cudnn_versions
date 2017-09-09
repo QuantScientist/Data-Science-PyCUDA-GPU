@@ -1,0 +1,13 @@
+assuming you have a different version of cudnn this set of commands will help preventing errors:
+
+go to the shared directory and paste the cuda install file you used for you local cuda version i.e.:
+tar xvzf cudnn-8.0-linux-x64-v6.0.tgz
+cd cuda
+cp include/cudnn.h /usr/local/cuda/include
+cp -f lib64/*.* /usr/local/cuda/lib64/
+chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+then you can run jupyter and verify that 
+import keras does not run into errors
+
+good luck!
