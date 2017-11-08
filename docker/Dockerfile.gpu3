@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
+FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
 
 ENV CUDA_ARCH_BIN "30 35 50 52 60"
@@ -237,25 +237,28 @@ RUN pip install -v scikit-learn==0.18  pycuda && pip install opencv-python pycry
 
 # Torch
 
+# RUN pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl 
+RUN pip2 install http://download.pytorch.org/whl/cu80/torch-0.2.0.post2-cp27-cp27mu-manylinux1_x86_64.whl
+
 # Build PyTorch from source
-RUN git clone https://github.com/pytorch/pytorch.git \
- && cd pytorch \
- && git checkout 4eb448a051a1421de1dda9bd2ddfb34396eb7287 \
- && TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1+PTX" \
-    TORCH_NVCC_FLAGS="-Xfatbin -compress-all" \
-    python setup.py install \
- && rm -rf pytorch
+# RUN git clone https://github.com/pytorch/pytorch.git \
+#  && cd pytorch \
+#  && git checkout 4eb448a051a1421de1dda9bd2ddfb34396eb7287 \
+#  && TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1+PTX" \
+#     TORCH_NVCC_FLAGS="-Xfatbin -compress-all" \
+#     python setup.py install \
+#  && rm -rf pytorch
 
 # Build torch-vision from source
-RUN git clone https://github.com/pytorch/vision.git \
- && cd vision \
- && git checkout 83263d8571c9cdd46f250a7986a5219ed29d19a1 \
- && python setup.py install \
- && rm -rf vision
-
+# RUN git clone https://github.com/pytorch/vision.git \
+#  && cd vision \
+#  && git checkout 83263d8571c9cdd46f250a7986a5219ed29d19a1 \
+#  && python setup.py install \
+#  && rm -rf vision
 
 # Install Torchnet, a high-level framework for PyTorch
 RUN pip install git+https://github.com/pytorch/tnt.git@master
+RUN pip install torchvision psutil
 
 
 RUN python -m ipykernel.kernelspec
@@ -272,5 +275,4 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 #ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib/root
 
 # Expose Ports
-EXPOSE 6006 3838 8787 8888 8786 9786 8788 5432 8000
-
+EXPOSE 6006 3838 8787 8888 8786 9786 8788 5432 8000 7842

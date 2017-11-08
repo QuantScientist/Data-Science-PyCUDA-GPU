@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="education_ Bachelors <= 0.5\ngini = 0.366\nsamples = 16496\nvalue = [19762, 6286]", fillcolor="#e58139ae"] ;
+1 [label="age <= 31.5\ngini = 0.328\nsamples = 13795\nvalue = [17327, 4514]", fillcolor="#e58139bd"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="occupation_ Adm-clerical <= 0.5\ngini = 0.108\nsamples = 5009\nvalue = [7456, 451]", fillcolor="#e58139f0"] ;
+1 -> 2 ;
+3 [label="gini = 0.115\nsamples = 4314\nvalue = [6371, 414]", fillcolor="#e58139ee"] ;
+2 -> 3 ;
+4 [label="gini = 0.064\nsamples = 695\nvalue = [1085, 37]", fillcolor="#e58139f6"] ;
+2 -> 4 ;
+5 [label="hours-per-week <= 41.5\ngini = 0.413\nsamples = 8786\nvalue = [9871, 4063]", fillcolor="#e5813996"] ;
+1 -> 5 ;
+6 [label="gini = 0.348\nsamples = 6064\nvalue = [7478, 2160]", fillcolor="#e58139b5"] ;
+5 -> 6 ;
+7 [label="gini = 0.493\nsamples = 2722\nvalue = [2393, 1903]", fillcolor="#e5813934"] ;
+5 -> 7 ;
+8 [label="relationship_ Not-in-family <= 0.5\ngini = 0.488\nsamples = 2701\nvalue = [2435, 1772]", fillcolor="#e5813945"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="hours-per-week <= 43.5\ngini = 0.498\nsamples = 1857\nvalue = [1351, 1553]", fillcolor="#399de521"] ;
+8 -> 9 ;
+10 [label="gini = 0.492\nsamples = 1097\nvalue = [972, 756]", fillcolor="#e5813939"] ;
+9 -> 10 ;
+11 [label="gini = 0.437\nsamples = 760\nvalue = [379, 797]", fillcolor="#399de586"] ;
+9 -> 11 ;
+12 [label="native-country_ Canada <= 0.5\ngini = 0.28\nsamples = 844\nvalue = [1084, 219]", fillcolor="#e58139cb"] ;
+8 -> 12 ;
+13 [label="gini = 0.281\nsamples = 840\nvalue = [1075, 219]", fillcolor="#e58139cb"] ;
+12 -> 13 ;
+14 [label="gini = 0.0\nsamples = 4\nvalue = [9, 0]", fillcolor="#e58139ff"] ;
+12 -> 14 ;
+}

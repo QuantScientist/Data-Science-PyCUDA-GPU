@@ -14,10 +14,10 @@ https://www.meetup.com/TensorFlow-Tel-Aviv/events/241762893/
 NOTE: Building this image may take several hours since CMAKE is being built from source. 
 https://github.com/QuantScientist/deep-ml-meetups
 
-Also available on docker hub:
-https://hub.docker.com/r/quantscientist/data-science-arrayfire-gpu/
+Also available on docker hub (Build on docker hub usually failes because of the long build time):
+https://hub.docker.com/r/quantscientist/deep-learning-boot-camp/
 
-`docker pull quantscientist/data-science-arrayfire-gpu`
+`docker pull quantscientist/deep-learning-boot-camp`
 
 
 

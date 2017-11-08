@@ -217,15 +217,12 @@ export CUDA_BIN_PATH=/usr/local/cuda
 
 export CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0
 
-# Build GLFW from source
-#git clone https://github.com/glfw/glfw.git && \
-    cd glfw && \
-    mkdir build && \
-    cd build && \
-    cmake -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0 -DCMAKE_INSTALL_PREFIX=/usr .. && \
-    make -j4 && \
-    make install
-
+# torch
+#pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl
+pip2 install http://download.pytorch.org/whl/cu80/torch-0.2.0.post2-cp27-cp27mu-manylinux1_x86_64.whl
+#pip install https://s3.amazonaws.com/pytorch/whl/cu75/torch-0.1.6.post22-cp27-none-linux_x86_64.whl 
+pip install torchvision
+ 
 # Install nvidia-docker and nvidia-docker-plugin
-wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
-dpkg -i /tmp/nvidia-docker*.deb && rm /tmp/nvidia-docker*.deb
+# wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+#dpkg -i /tmp/nvidia-docker*.deb && rm /tmp/nvidia-docker*.deb

@@ -11,16 +11,14 @@ else
   exit 1
 fi
 
-echo "\nChecking for NVIDIA drivers ..."
-if ! nvidia-smi ; then
-  echo "Error: nvidia-smi is not installed, or not working."
-
+echo "\nChecking for NVIDIA drivers ..."      
+# Check for CUDA and try to install.
+if ! dpkg-query -W cuda; then
+  # The 16.04 installer works with 16.10.
+  curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
   apt-get update
-  apt-get install -y curl build-essential
-
-  curl -O -s http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run
-  sh ./NVIDIA-Linux-x86_64-375.39.run -a --ui=none --no-x-check && rm NVIDIA-Linux-x86_64-375.39.run
-
+  apt-get install cuda -y
   echo "\nInstalled NVIDIA drivers."
 else
   echo "NVIDIA driver is already installed."
